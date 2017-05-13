@@ -1,6 +1,7 @@
 /* eslint consistent-return:0 */
 
 const express = require('express');
+const proxy = require('http-proxy-middleware');
 const logger = require('./logger');
 
 const argv = require('minimist')(process.argv.slice(2));
@@ -24,7 +25,17 @@ const customHost = argv.host || process.env.HOST;
 const host = customHost || null; // Let http.Server use its default IPv6/4 host
 const prettyHost = customHost || 'localhost';
 
-const port = argv.port || process.env.PORT || 3000;
+const port = argv.port || process.env.PORT || 3001;
+
+const pxhost = process.env.PROXY_HOST || 'localhost';
+const pxport = process.env.PROXY_PORT || 3000;
+
+app.use('/*', proxy({
+  target: `http://${pxhost}:${pxport}`,
+  changeOrigin: true,
+  logLevel: 'debug',
+  ws: true,
+}));
 
 // Start your app.
 app.listen(port, host, (err) => {

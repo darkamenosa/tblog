@@ -26,13 +26,47 @@ After spending few days to read some books, articles, repositories related to No
 
 ## To do:
 
-1. Implement core features
+1. Setup CICD process:
+
+	- Using Travis CI and Heroku
+
+1. Implement core features:
 
 	(List down feature here)
 
-1. Implement remain features
+1. Implement remain features:
     
 ## Quick start
+
+**Install dependencies:** 
+
+1. Install root project dependencies:
+```js
+npm install
+```
+2. Install chidren projects dependencies:
+
+```js
+npm start install
+```
+
+**Run in production mode:**
+
+1. Build project
+```js
+npm start build
+```
+
+2. Run: 
+```js 
+npm start prod
+```
+
+**Run in development mode:**
+```js
+npm start dev
+```
+
 
 ## Documentation
 
@@ -43,4 +77,4 @@ After spending few days to read some books, articles, repositories related to No
 ## License
 
 This project is licensed under the MIT license, Copyright (c) 2017 darkamenosa. 
-For more information see `LICENSE.md`.
+For more information see `LICENSE`.
