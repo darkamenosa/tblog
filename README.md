@@ -31,21 +31,22 @@ After spending few days to read some books, articles, repositories related to No
 
 1. Setup CICD process:
 
-	- Using Travis CI and Heroku (Done)
+- Using Travis CI and Heroku (Done)
 
-1. Implement core features:
+2. Implement core features:
 
-	- A homepage where users can scroll to see the list of articles infinitely
-  - A Search screen, which show the result of search for articles
-  - An article detail page, where users can read the detail of each article
-  - User could login, after login, they will be able to mark one article as their favourite, and could access the article later from another menu.
-  - User's able to add new article.
+- A homepage where users can scroll to see the list of articles infinitely.
+- A Search screen, which show the result of search for articles
+- An article detail page, where users can read the detail of each article
+- User could login, after login, they will be able to mark one article as their favourite, and could access the article later from another menu.
+- User's able to add new article.
 
-1. Implement remain features:
+
+3. Implement remain features:
     
-  - User's able to create group, join group, out group.
-  - Use can contribute to a group. 
-  - Blog posts in group can be public or private for group's users.
+- User's able to create group, join group, out group.
+- Use can contribute to a group. 
+- Blog posts in group can be public or private for group's users.
 
 ## Quick start
 
