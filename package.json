@@ -9,7 +9,7 @@
   "scripts": {
     "start": "nps",
     "prepush": "npm start test && npm start build",
-    "heroku-postbuild": "yarn install && yarn start install && yarn start build"
+    "heroku-postbuild": "yarn start install && yarn start build"
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
