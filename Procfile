@@ -1,1 +1,1 @@
-web: node server/build
+web: cd server && node build
