@@ -28,7 +28,6 @@
     "eslint-plugin-jsx-a11y": "^3.0.2 || ^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.46.0",
-    "husky": "^0.13.3",
     "jest": "^20.0.1",
     "nodemon": "^1.11.0",
     "pm2": "^2.4.6",
