@@ -45,6 +45,20 @@ module.exports = {
         description: 'run the server build',
       }
     },
+    test: {
+      default: {
+        description: 'Test both the web client and the server',
+        script: concurrent.nps('test.webclient', 'test.server'),
+      },
+      webclient: {
+        script: series('cd webclient', 'npm run test'),
+        description: 'run the web client test',
+      },
+      server: {
+        script: series('cd server', 'npm run test'),
+        description: 'run the server test',
+      }
+    },
     prod: {
       default: {
         description: oneLine`
