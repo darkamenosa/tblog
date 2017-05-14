@@ -9,6 +9,8 @@ I thought it was a boring requirement (it really was). I got an idea "Why don't 
 
 I will put these ideas here later. This is just a start for my project.
 
+You can view [demo](https://darkamenosa-tblog.herokuapp.com/) here
+
 ## Technical choice
 
 On an interview, a technical leader said to me that *"NodeJS makes development faster, b/c it's easy to learn and has a lot of support tools"*. Most of the time I work with Java(Spring framework) and React stuffs, so I decide to try **NodeJS** for backend and **React** for frontent. Let's see how fast it is.
