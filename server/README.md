@@ -12,7 +12,7 @@ To get the Node server running locally:
 - `src/index.js` - The entry point to our application. This file defines our express server and connects it to MongoDB using mongoose. It also requires the routes and models we'll be using in the application.
 - `src/config/` - This folder contains configuration.
 - `src/routes/` - This folder contains the route definitions for our API.
-- `src/server/` - This folder contains the service implementation for our API.
+- `src/service/` - This folder contains the service implementation for our API.
 - `src/models/` - This folder contains the schema definitions for our Mongoose models.
 
 ## How to build
