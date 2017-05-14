@@ -12,8 +12,7 @@
     "test:watch": "jest --watch",
     "prod:build": "rimraf build && babel src -d build --ignore __test__,.test.js",
     "prod:start": "cross-env NODE_ENV=production pm2 start build --name tblog-server && pm2 logs",
-    "prod:stop": "pm2 delete tblog-server",
-    "prepush": "npm run test && npm run prod:build"
+    "prod:stop": "pm2 delete tblog-server"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

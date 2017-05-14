@@ -7,10 +7,12 @@
   "author": "tuyenhx <hxtxmu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nps"
+    "start": "nps",
+    "prepush": "npm start test && npm start build"
   },
   "devDependencies": {
     "coveralls": "^2.13.1",
+    "husky": "^0.13.3",
     "nps": "^5.1.0",
     "nps-utils": "^1.2.0"
   }
