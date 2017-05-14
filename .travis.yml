@@ -1,5 +1,11 @@
-# running on container-based infrastructure
 sudo: false
+branches:
+  only:
+  - master
 language: node_js
 node_js: node
 script: yarn start install && yarn start test && yarn start build
+deploy:
+  provider: heroku
+  api_key:
+    secure: i6GFkQb2AduqfTs1Ta8dgSrAcuqUoQRHA2WHXwRSAp89WKULiOY/6KIsRbaIEfIEeul7x490j/v6XK9G/CCY9y6KuqHJ7OpQ+THIylHOBxLfocSXn+ZLq+Ww4PoyVmdPTolS8N3gtEkuc4KGdo+//vz8DH+tvM58vPR7ivf4ecg6/euue+WoOC9Zs8dUhU9T70OYP8GuimvWBCWYxnTh7dCWosJnNm5R+3GAAYvPhTfrINhHlCX8B/WYIT/VgF8koa9N5kNS7ckn0+I+wHsO0bwWcZDdmT9f40iKYv+012LrR9kOLQCz8Z6T93YcjhmIzdnG7n2hWmaczcZrSYC1SsFnWofdQzwFThftkbsrujtDxe3uD2erMZRLjCAk6rgvkPRD7snn7VK7g/HonIODLQ4hyQyp0ZgcbCOWCFW2D1nxLPHXagZrOSLz2ZoWxHje2aJbkNCwFxCz3v8bCOBHplAcS8LNWuDSEMLOvUB0KOmGcnrPohKpvvKNuGd/M+V+dj7/C0pemFjq6pBfD5XZUSPWb957tU/CsX+/q5Wjzg9fQ31AYVhyUvs452HHdzguzjSinAahX48qLYSLkTjRmpQu0mQFk+NhZeg1bgM3y5d6ofO3cIoNc82ief43tuj2WlenLetIjUcfkJ97l/S1zkjiSTc62sze8KDqBa+oUng=
