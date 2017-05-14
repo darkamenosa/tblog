@@ -17,13 +17,19 @@ On an interview, a technical leader said to me that *"NodeJS makes development f
 
 After spending few days to read some books, articles, repositories related to NodeJS, I got my stack.
 
-- Webclient: React
+The first thing I want to do is set up project structure and CICD process. 
 
-	+ [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+- **Webclient**: [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate), I refer to use this stack, instead of setup from scratch. This stack is battle tested and I'm quite familiar with it. Reading webpack's document and rewrite webpack config files are nightmare, after that you have to add a ton of boilerplates to setup redux things (like middlewares, routes, ....). (Using: **React, Redux, ES6, ImmutableJS, Redux Saga, ...**)
 
-- Server: ExpressJS
 
-	+ [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch)
+- **Server**: [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch), this is a very good tutorial. Building a project from backend to frontend, integrate with a lot of tools (flow, eslint, babel). I think follow this tutorial from chapter 1 to chapter 4 is enough to build a good backend structure. (Using: **Express, MongoDB, ES6, ...**). As you see, I also use ES6 for the server. In my opinion, ES6 will make your code cleaner and less magic than ES5.
+
+- **Testing**: [testing-workshop](https://github.com/kentcdodds/testing-workshop), this workshop helped me know how to test a full stack JS project, from unit test to end-to-end test. In the video, Kent C. Dodds showed some very useful techniques to writing code. (Using: **Jest**)
+
+- **Deployment**: I use TravisCI and Heroku. After finished build on TravisCI, new changes will be deployed to Heroku.
+
+Finishing these things will make my development process faster.
+
 
 ## Now doing:
 
