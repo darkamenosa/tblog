@@ -20,5 +20,6 @@
   "engines": {
     "node": "7.x",
     "yarn": "0.20.3"
-  }
+  },
+  "cacheDirectories": ["node_modules", "webclient/node_modules", "server/node_modules"]
 }
