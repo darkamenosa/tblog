@@ -1,4 +1,4 @@
-#Getting started
+## Getting started
 
 To get the Node server running locally:
 
