@@ -1,12 +1,12 @@
 ## Introduction
 
-This project is build on react-boilerplate.
+This project is build on [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). It will start a proxy server (on port **3001**) for hot reload React and exchange data with our `server`.
 
 ## Quick start
 
 Run `npm run setup` to install dependencies and clean the git repo.<br />
    *We auto-detect `yarn` for installing packages by default, if you wish to force `npm` usage do: `USE_YARN=false npm run setup`*<br />
-   *At this point you can run `npm start` to see the example app at `http://localhost:3000`.*
+   *At this point you can run `npm start` to see the example app at `http://localhost:3001`.*
 
 Now you're ready to rumble!
 
@@ -19,10 +19,6 @@ Now you're ready to rumble!
 - [Styling](docs/css): How to work with the CSS tooling
 - [Your app](docs/js): Supercharging your app with Routing, Redux, simple
   asynchronicity helpers, etc.
-
-## Maintainer
-
-TuyenHX
 
 ## License
 
