@@ -8,7 +8,6 @@
   "license": "MIT",
   "scripts": {
     "start": "nps",
-    "test": "cat server/coverage/lcov.info | coveralls",
     "prepush": "npm start test && npm start build",
     "heroku-postbuild": "yarn start install && yarn start build"
   },

@@ -62,15 +62,7 @@ module.exports = {
     coveralls: {
       default: {
         description: 'Run coveralls for both client and server',
-        script: series('coveralls.webclient', 'coveralls.server'),
-      },
-      webclient: {
-        script: series('cd webclient', 'cat coverage/lcov.info | coveralls'),
-        description: 'run coveralls for web client',
-      },
-      server: {
-        script: series('cd server', 'cat coverage/lcov.info | coveralls'),
-        description: 'run coveralls for web client',
+        script: 'cat webclient/coverage/lcov.info server/coverage/lcov.info | coveralls',
       }
     },
     prod: {
