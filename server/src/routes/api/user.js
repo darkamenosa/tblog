@@ -1,14 +1,11 @@
 // @flow
-
 import { Router } from 'express'
-import api from './api'
 
 const router = Router()
 
-router.use('/api', api)
-router.use('/hello', (req, res) => {
+router.get('/', (req, res) => {
   res.json({
-    msg: 'Hello',
+    user: 'This is an user',
   })
 })
 

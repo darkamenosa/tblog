@@ -15,6 +15,13 @@ To get the Node server running locally:
 - `src/services/` - This folder contains the service implementation for our API.
 - `src/models/` - This folder contains the schema definitions for our Mongoose models.
 
+## Domain design
+
+- Article
+- User
+- Comment
+
+
 ## How to build
 
 - Setup project structure based on [js-stack-from-scratch](https://github.com/verekia/js-stack-from-scratch). You can read from chapter 1 to chapter 4.

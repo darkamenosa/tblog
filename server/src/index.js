@@ -10,8 +10,9 @@ import cors from 'cors'
 
 import logger from 'morgan'
 import methodOverride from 'method-override'
-// import mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
+import routes from './routes'
 import config from './config'
 
 const startServer = (cfg: Object) => {
@@ -26,6 +27,10 @@ const startServer = (cfg: Object) => {
   app.use(compression())
   app.use(express.static(path.resolve(__dirname, 'public')))
   app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }))
+
+  mongoose.connect(config.db.url, { safe: true })
+
+  app.use(routes)
 
   if (cfg.production) {
     app.use(errorhandler())

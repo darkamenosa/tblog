@@ -29,6 +29,7 @@
     "eslint-plugin-react": "^6.9.0",
     "flow-bin": "^0.46.0",
     "jest": "^20.0.1",
+    "mockgoose": "^7.3.1",
     "nodemon": "^1.11.0",
     "pm2": "^2.4.6",
     "rimraf": "^2.6.1"
