@@ -1,5 +1,5 @@
 [![Build Status](https://img.shields.io/travis/darkamenosa/tblog.svg?style=flat-square)](https://travis-ci.org/darkamenosa/tblog)
-[![Coverage Status](https://img.shields.io/coveralls/darkamenosa/tblog.svg?style=flat-square)](https://coveralls.io/github/darkamenosa/tblog/darkamenosa/tblog?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/darkamenosa/tblog.svg?style=flat-square)](https://coveralls.io/github/darkamenosa/tblog?branch=master)
 
 ## Introduction
 

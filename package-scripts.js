@@ -62,7 +62,7 @@ module.exports = {
     coveralls: {
       default: {
         description: 'Run coveralls for both client and server',
-        script: concurrent.nps('coveralls.webclient', 'coveralls.server'),
+        script: series('coveralls.webclient', 'coveralls.server'),
       },
       webclient: {
         script: series('cd webclient', 'cat coverage/lcov.info | coveralls'),
