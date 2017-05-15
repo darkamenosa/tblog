@@ -59,6 +59,20 @@ module.exports = {
         description: 'run the server test',
       }
     },
+    coveralls: {
+      default: {
+        description: 'Run coveralls for both client and server',
+        script: concurrent.nps('coveralls.webclient', 'coveralls.server'),
+      },
+      webclient: {
+        script: series('cd webclient', 'cat coverage/lcov.info | coveralls'),
+        description: 'run coveralls for web client',
+      },
+      server: {
+        script: series('cd server', 'cat coverage/lcov.info | coveralls'),
+        description: 'run coveralls for web client',
+      }
+    },
     prod: {
       default: {
         description: oneLine`

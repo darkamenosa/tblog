@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nps",
+    "test": "cat server/coverage/lcov.info | coveralls",
     "prepush": "npm start test && npm start build",
     "heroku-postbuild": "yarn start install && yarn start build"
   },
@@ -21,5 +22,9 @@
     "node": "7.x",
     "yarn": "0.20.3"
   },
-  "cacheDirectories": ["node_modules", "webclient/node_modules", "server/node_modules"]
+  "cacheDirectories": [
+    "node_modules",
+    "webclient/node_modules",
+    "server/node_modules"
+  ]
 }
