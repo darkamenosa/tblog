@@ -1,5 +1,8 @@
 // @flow
 import mongoose from 'mongoose'
+import bluebird from 'bluebird'
+
+mongoose.Promise = bluebird
 
 const UserSchema = new mongoose.Schema({
   username: { type: String, lowercase: true, unique: true, required: true },

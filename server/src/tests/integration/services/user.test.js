@@ -1,3 +1,4 @@
+import bluebird from 'bluebird'
 import mongoose from 'mongoose'
 import { Mockgoose } from 'mockgoose'
 import UserModel from '../../../models/UserModel'
@@ -8,7 +9,7 @@ const mockgoose = new Mockgoose(mongoose, { port: 654398 })
 
 beforeAll(async () => {
   await mockgoose.prepareStorage()
-  db = mongoose.connect('mongodb://test/tblog', { safe: true })
+  db = mongoose.connect('mongodb://test/tblog', { safe: true, promiseLibrary: bluebird })
 }, 120000)
 
 afterAll(async (done) => {
