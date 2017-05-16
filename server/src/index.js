@@ -1,10 +1,11 @@
 // @flow
+import 'babel-polyfill'
 import express from 'express'
 import compression from 'compression'
 import path from 'path'
 
 import bodyParser from 'body-parser'
-import session from 'express-session'
+// import session from 'express-session'
 import errorhandler from 'errorhandler'
 import cors from 'cors'
 
@@ -27,7 +28,8 @@ const startServer = (cfg: Object) => {
   app.use(methodOverride())
   app.use(compression())
   app.use(express.static(path.resolve(__dirname, 'public')))
-  app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }))
+  // app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 },
+  // resave: false, saveUninitialized: false }))
 
   app.use(routes)
 
