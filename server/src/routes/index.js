@@ -1,13 +1,10 @@
 // @flow
 
 import { Router } from 'express'
-
-import ArticleRoute from './api/ArticleRoute'
-import UserRoute from './api/UserRoute'
+import api from './api'
 
 const router = Router()
 
-router.use('/api/articles', ArticleRoute)
-router.use('/api/users', UserRoute)
+router.use('/api', api)
 
 export default router

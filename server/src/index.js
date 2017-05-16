@@ -87,6 +87,7 @@ const startServer = (cfg: Object) => {
 }
 
 if (require.main === module) {
+  mongoose.Promise = BPromise
   const options = { promiseLibrary: BPromise, safe: true }
   mongoose.connect(config.db.url, options)
   startServer(config)
