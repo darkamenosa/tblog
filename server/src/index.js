@@ -11,6 +11,7 @@ import cors from 'cors'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import mongoose from 'mongoose'
+import promise from 'bluebird'
 
 import routes from './routes'
 import config from './config'
@@ -28,6 +29,7 @@ const startServer = (cfg: Object) => {
   app.use(express.static(path.resolve(__dirname, 'public')))
   app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }))
 
+  mongoose.Promise = promise
   mongoose.connect(config.db.url, { safe: true })
 
   app.use(routes)

@@ -4,7 +4,7 @@ import UserModel from '../../../models/UserModel'
 import UserService from '../../../services/UserService'
 
 let db
-const mockgoose = new Mockgoose(mongoose)
+const mockgoose = new Mockgoose(mongoose, { port: 654398 })
 
 beforeAll(async () => {
   await mockgoose.prepareStorage()
