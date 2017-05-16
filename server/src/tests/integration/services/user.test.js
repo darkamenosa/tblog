@@ -1,7 +1,6 @@
 import bluebird from 'bluebird'
 import mongoose from 'mongoose'
 import { Mockgoose } from 'mockgoose'
-import UserModel from '../../../models/UserModel'
 import UserService from '../../../services/UserService'
 
 let db
@@ -17,7 +16,7 @@ afterAll(async (done) => {
   db.disconnect(done)
 })
 
-const userService = new UserService(UserModel)
+const userService = new UserService()
 
 describe('UserService CRUD test', () => {
   // Stored id to do findOne test
