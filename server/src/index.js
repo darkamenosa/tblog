@@ -11,7 +11,7 @@ import cors from 'cors'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import mongoose from 'mongoose'
-import bluebird from 'bluebird'
+import BPromise from 'bluebird'
 
 import routes from './routes'
 import config from './config'
@@ -28,9 +28,6 @@ const startServer = (cfg: Object) => {
   app.use(compression())
   app.use(express.static(path.resolve(__dirname, 'public')))
   app.use(session({ secret: 'conduit', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }))
-
-  const options = { promiseLibrary: bluebird, safe: true }
-  mongoose.connect(config.db.url, options)
 
   app.use(routes)
 
@@ -78,7 +75,7 @@ const startServer = (cfg: Object) => {
   })
 
 
-  return new Promise((resolve) => {
+  return new BPromise((resolve) => {
     const server = app.listen(cfg.server.port, () => {
       // eslint-disable-next-line no-console
       console.log(`Server is listening on port: ${cfg.server.port}`)
@@ -88,6 +85,8 @@ const startServer = (cfg: Object) => {
 }
 
 if (require.main === module) {
+  const options = { promiseLibrary: BPromise, safe: true }
+  mongoose.connect(config.db.url, options)
   startServer(config)
 }
 
