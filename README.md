@@ -34,6 +34,7 @@ Finishing these things will make my development process faster.
 ## Now doing:
 
 - View: [testing-workshop](https://github.com/kentcdodds/testing-workshop)
+- View: [mostly-adequate-guide](https://github.com/MostlyAdequate/mostly-adequate-guide), this guide is a functional programming tutorial.
 
 ## To do:
 
@@ -88,7 +89,20 @@ npm start dev
 ```
 
 
+## FAQ
+
+**1. What is `nps`?**
+
+Arcording to the [nps](https://github.com/kentcdodds/nps) documentation:
+> All the benefits of npm scripts without the cost of a bloated package.json and limits of json
+
+I use `nps` to write few scripts (build, dev, ...), it reduces a big amount of code inside `package.json` file. `nps`'s scripts are written `package-scripts.js` file.
+
+To list all scripts run `npm run start help`
+
 ## Documentation
+
+(N/A)
 
 ## Contributors
 
