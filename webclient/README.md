@@ -2,6 +2,23 @@
 
 This project is build on [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). It will start a proxy server (on port **3001**) for hot reload React and exchange data with our `server`.
 
+## Sitemap
+
+```
+
+public: 
+  /home
+  /search
+  /login
+  /register
+
+private:
+  /new-article
+  /bookmarks
+  /profile
+
+```
+
 ## Quick start
 
 Run `npm run setup` to install dependencies and clean the git repo.<br />
