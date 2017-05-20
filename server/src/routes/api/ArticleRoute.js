@@ -1,6 +1,7 @@
 // @flow
 
 import { Router } from 'express'
+import Promise from 'bluebird'
 import { articleResponse, errorChecking, checkReservedParams, notAllowed } from './utils'
 import ArticleModel from '../../models/ArticleModel'
 
@@ -13,15 +14,18 @@ const articlesAPI = ({ model }) => ({
     // Build query here
     const query = {}
 
-    // Run query
-    const data = await model.find(query)
+    // Run query parallel
+    const [data, count] = await Promise.all([
+      // Generate find articles query
+      model.find(query)
         .limit(Number(limit))
         .skip(Number(offset))
         .sort({ [orderBy]: orderDirection })
         .populate('author')
-        .exec()
-
-    const count = await model.count(query).exec()
+        .exec(),
+      // Generate count query
+      model.count(query).exec(),
+    ])
 
     res.json({
       offset,

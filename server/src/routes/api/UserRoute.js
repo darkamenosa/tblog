@@ -1,5 +1,6 @@
 // @flow
 import { Router } from 'express'
+import Promise from 'bluebird'
 import { userResponse, errorChecking, notAllowed } from './utils'
 import UserModel from '../../models/UserModel'
 
@@ -13,13 +14,15 @@ const usersAPI = ({ model }) => ({
     const query = {}
 
     // Run query
-    const data = await model.find(query)
+    const [data, count] = await Promise.all([
+      model.find(query)
         .limit(Number(limit))
         .skip(Number(offset))
         .sort({ [orderBy]: orderDirection })
-        .exec()
+        .exec(),
 
-    const count = await model.count(query).exec()
+      model.count(query).exec(),
+    ])
 
     res.json({
       offset,
