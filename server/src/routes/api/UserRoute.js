@@ -1,32 +1,42 @@
 // @flow
 import { Router } from 'express'
-import UserService from '../../services/UserService'
-import { userResponse } from './utils'
+import { userResponse, errorChecking, notAllowed } from './utils'
+import UserModel from '../../models/UserModel'
 
-const userService = new UserService()
+const usersAPI = ({ model }) => ({
+
+  // GET: /
+  index: async (req, res) => {
+    const { offset = 0, limit = 10, orderBy = 'createdAt', orderDirection = 'asc' } = req.query
+
+    // Build query here
+    const query = {}
+
+    // Run query
+    const data = await model.find(query)
+        .limit(Number(limit))
+        .skip(Number(offset))
+        .sort({ [orderBy]: orderDirection })
+        .exec()
+
+    const count = await model.count(query).exec()
+
+    res.json({
+      offset,
+      limit,
+      orderBy,
+      orderDirection,
+      count: count.count,
+      data: data.map(userResponse),
+    })
+  },
+})
+
+const api = usersAPI({ model: UserModel })
 const router = Router()
 
-// Handle params
-
-router.param('username', async (req, res, next, username) => {
-  const user = await userService.findOne({ username })
-  if (!user) {
-    return res.sendStatus(404)
-  }
-  req.user = user
-  return next()
-})
-
-// Handle request
-router.get('/', async (req, res) => {
-  const users = await userService.findAll()
-  res.json(users.map(userResponse))
-})
-
-router.post('/', async (req, res) => {
-  const user = req.body.user
-  const result = await userService.save(user)
-  res.json(result)
-})
+router.route('/')
+  .get(errorChecking(api.index))
+  .all(notAllowed)
 
 export default router

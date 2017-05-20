@@ -1,26 +1,27 @@
 // @flow
 
 import { Router } from 'express'
-import UserService from '../../services/UserService'
-import { userResponse } from './utils'
+import { userResponse, errorChecking, notAllowed } from './utils'
+import UserModel from '../../models/UserModel'
 
-const userService = new UserService()
+const profilesAPI = ({ model }) => ({
+
+  // GET: /:username
+  index: async (req, res) => {
+    const instance = await model.findOne({ username: req.params.username })
+    if (instance) {
+      res.json({ data: userResponse(instance) })
+    } else {
+      res.status(404).json({ error: 'Not found' })
+    }
+  },
+})
+
+const api = profilesAPI({ model: UserModel })
 const router = Router()
 
-// Handle params
-router.param('username', async (req, res, next, username) => {
-  const user = await userService.findOne({ username })
-  if (!user) {
-    return res.sendStatus(404)
-  }
-  req.user = user
-  return next()
-})
-
-
-// Handle request
-router.get('/:username', async (req, res) => {
-  res.json(userResponse(req.user))
-})
+router.route('/:username')
+  .get(errorChecking(api.index))
+  .all(notAllowed)
 
 export default router

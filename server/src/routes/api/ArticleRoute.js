@@ -1,19 +1,67 @@
 // @flow
 
 import { Router } from 'express'
-import ArticleService from '../../services/ArticleService'
-import { articleResponse } from './utils'
+import { articleResponse, errorChecking, checkReservedParams, notAllowed } from './utils'
+import ArticleModel from '../../models/ArticleModel'
 
-const articleService = new ArticleService()
-const router = Router()
+const articlesAPI = ({ model }) => ({
 
+  // GET: /
+  index: async (req, res) => {
+    const { offset = 0, limit = 10, orderBy = 'createdAt', orderDirection = 'asc' } = req.query
 
-router.use('/', async (req, res) => {
-  const { limit = 20, offset = 0 } = req.query
+    // Build query here
+    const query = {}
 
-  const articles = await articleService.findAll({}, { limit, offset })
+    // Run query
+    const data = await model.find(query)
+        .limit(Number(limit))
+        .skip(Number(offset))
+        .sort({ [orderBy]: orderDirection })
+        .populate('author')
+        .exec()
 
-  res.json(articles.map(articleResponse))
+    const count = await model.count(query).exec()
+
+    res.json({
+      offset,
+      limit,
+      orderBy,
+      orderDirection,
+      count: count.count,
+      data: data.map(articleResponse),
+    })
+  },
+
+  // POST: /
+  create: async (req, res) => {
+    const instance = await model.create(req.body)
+    res.status(201).json({ data: instance })
+  },
+
+  // PUT: /
+  update: async () => {
+
+  },
+
+  // GET: /:id
+  get: async () => {
+
+  },
+
+  // PUT: /:id
+  del: async () => {
+
+  },
 })
+
+const router = Router()
+const api = articlesAPI({ model: ArticleModel })
+
+router.route('/')
+  .get(errorChecking(api.index))
+  .post(errorChecking(checkReservedParams(api.create, 'id', 'createdAt', 'updatedAt')))
+  .all(errorChecking(notAllowed))
+
 
 export default router

@@ -77,7 +77,7 @@ const startServer = (cfg: Object) => {
   })
 
 
-  return new BPromise((resolve) => {
+  return new BPromise((resolve: Function) => {
     const server = app.listen(cfg.server.port, () => {
       // eslint-disable-next-line no-console
       console.log(`Server is listening on port: ${cfg.server.port}`)
