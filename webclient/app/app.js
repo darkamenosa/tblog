@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
-import 'sanitize.css/sanitize.css';
+import FontFaceObserver from 'fontfaceobserver';
 
 // Import root app
 import App from 'containers/App';
@@ -33,13 +33,19 @@ import '!file-loader?name=[name].[ext]!./manifest.json';
 import 'file-loader?name=[name].[ext]!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
+// Import custom styles and fonts
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './fonts/GothamPro/styles.css';
+import './fonts/GothamPro-Bold/styles.css';
+import './fonts/GothamPro-Medium/styles.css';
+
 import configureStore from './store';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
 
 // Import CSS reset and Global Styles
-import './global-styles';
+// import './global-styles';
 
 // Import root routes
 import createRoutes from './routes';
@@ -50,6 +56,15 @@ import createRoutes from './routes';
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
+
+const gothamProObserver = new FontFaceObserver('GothamPro', {});
+
+// When GothamPro is loaded, add a font-family using GothamPro to the body
+gothamProObserver.load().then(() => {
+  document.body.classList.add('fontLoaded');
+}, () => {
+  document.body.classList.remove('fontLoaded');
+});
 
 // Sync history and store, as the react-router-redux reducer
 // is under the non-default key ("routing"), selectLocationState
