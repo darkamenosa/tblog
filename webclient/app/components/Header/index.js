@@ -35,10 +35,6 @@ const HambergerToggle = styled(Navbar.Toggle)`
   border: none;
 `;
 
-const Blue = styled.span`
-  color: #337ab7
-`;
-
 const Header = () => (
   <Navbar>
     <LoadingBar />
@@ -46,7 +42,7 @@ const Header = () => (
       <NavBrand>
         <Link to="/">
           <Logo>
-            <Blue>tblog</Blue>
+            tblog
           </Logo>
         </Link>
       </NavBrand>
@@ -55,13 +51,13 @@ const Header = () => (
     <Navbar.Collapse>
       <RightNav pullRight>
         <NavItem eventKey={1} href="/#/search">
-          <Blue><i className="fa fa-search fa-lg" /></Blue>
+          <i className="fa fa-search fa-lg" />
         </NavItem>
         <NavItem eventKey={1} href="/#/register">
-          <Blue>Sign Up</Blue>
+          Sign Up
         </NavItem>
         <NavItem eventKey={2} href="/#/login">
-          <Blue>Sign In</Blue>
+          Sign In
         </NavItem>
       </RightNav>
     </Navbar.Collapse>

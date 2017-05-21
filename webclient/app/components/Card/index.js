@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router';
 import Img from '../Img';
 import Avatar from '../Avatar';
+import UserInfo from '../UserInfo';
 
 const Wrapper = styled.div`
   box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
@@ -34,20 +35,6 @@ const Title = styled.h1`
 const Description = styled.div`
 `;
 
-
-const UserWrapper = styled.div`
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: row;
-`;
-
-const UserInfo = styled.div`
-  padding-left: 10px;
-`;
-
-const Username = styled(Link)`
-`;
-
 const EnagementWrapper = styled.div`
   display: flex;
   padding-top: 10px;
@@ -66,17 +53,7 @@ function Card() {
   return (
     <Wrapper>
       <CardBlock>
-        <UserWrapper>
-          <Avatar />
-          <UserInfo>
-            <Username to="/profiles/@darkamenosa">
-              Darkamenosa
-            </Username>
-            <div>
-              30 mins ago
-            </div>
-          </UserInfo>
-        </UserWrapper>
+        <UserInfo />
       </CardBlock>
       <CardBlock>
         <CardImg src="https://www.w3schools.com/howto/img_avatar.png"></CardImg>
