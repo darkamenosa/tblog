@@ -8,7 +8,7 @@ describe('makeSelectLocationState', () => {
       locationBeforeTransitions: null,
     });
     const mockedState = fromJS({
-      route,
+      global: { route },
     });
     expect(makeSelectLocationState()(mockedState)).toEqual(route.toJS());
   });
@@ -18,7 +18,7 @@ describe('makeSelectLocationState', () => {
       locationBeforeTransitions: null,
     });
     const mockedState = fromJS({
-      route,
+      global: { route },
     });
     const selectLocationState = makeSelectLocationState();
 

@@ -11,13 +11,22 @@
 
 import React from 'react';
 import Header from 'components/Header';
+import ArticleList from 'components/ArticleList';
+
+
+const fakeArticles = [
+  {},
+  {},
+];
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
+      <div className="row">
         <Header></Header>
-        <div className="round-btn">Follow</div>
+        <div className="container">
+          <ArticleList articles={fakeArticles}></ArticleList>
+        </div>
       </div>
     );
   }

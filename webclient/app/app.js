@@ -35,6 +35,7 @@ import 'file-loader?name=[name].[ext]!./.htaccess';
 
 // Import custom styles and fonts
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import './fonts/GothamPro/styles.css';
 import './fonts/GothamPro-Bold/styles.css';
 import './fonts/GothamPro-Medium/styles.css';
@@ -45,7 +46,7 @@ import configureStore from './store';
 import { translationMessages } from './i18n';
 
 // Import CSS reset and Global Styles
-// import './global-styles';
+import './global-styles';
 
 // Import root routes
 import createRoutes from './routes';

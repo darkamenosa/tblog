@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import Header from '../index';
+// import Card from '../index';
 
-describe('<Header />', () => {
+describe('<Card />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(true);
   });
