@@ -44,11 +44,15 @@ const Header = () => (
   <Wrapper>
     <Head>
       <LeftMenu>
-        <h2>tblog</h2>
+        <h2>
+          <StyledLink to="/">
+            Tblog
+          </StyledLink>
+        </h2>
       </LeftMenu>
       <RightMenu>
-        <StyledLink>Sign Up</StyledLink>
-        <StyledLink>Sign In</StyledLink>
+        <StyledLink to="/register">Sign Up</StyledLink>
+        <StyledLink to="/login">Sign In</StyledLink>
       </RightMenu>
     </Head>
     <LoadingBar />

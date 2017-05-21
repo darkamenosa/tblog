@@ -10,7 +10,7 @@
  */
 
 import React from 'react';
-import Header from 'components/Header';
+import AppWrapper from 'components/AppWrapper';
 import ArticleList from 'components/ArticleList';
 
 
@@ -22,12 +22,9 @@ const fakeArticles = [
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className="row">
-        <Header></Header>
-        <div className="container">
-          <ArticleList articles={fakeArticles}></ArticleList>
-        </div>
-      </div>
+      <AppWrapper>
+        <ArticleList articles={fakeArticles}></ArticleList>
+      </AppWrapper>
     );
   }
 }

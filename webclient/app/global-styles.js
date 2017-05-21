@@ -14,7 +14,7 @@ injectGlobal`
     margin: 0;
   }
 
-  a {
+  a, a:hover {
     text-decoration: none;
   }
 `;
