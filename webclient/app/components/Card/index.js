@@ -46,13 +46,20 @@ const UserInfo = styled.div`
 `;
 
 const Username = styled(Link)`
-
 `;
 
 const EnagementWrapper = styled.div`
   display: flex;
   padding-top: 10px;
   justify-content: space-between;
+`;
+
+const NoColorLink = styled(Link)`
+  color: #333;
+`;
+
+const Blue = styled.span`
+  color: #337ab7;
 `;
 
 function Card() {
@@ -62,7 +69,7 @@ function Card() {
         <UserWrapper>
           <Avatar />
           <UserInfo>
-            <Username>
+            <Username to="/profiles/@darkamenosa">
               Darkamenosa
             </Username>
             <div>
@@ -75,17 +82,19 @@ function Card() {
         <CardImg src="https://www.w3schools.com/howto/img_avatar.png"></CardImg>
       </CardBlock>
       <CardBlock>
-        <Title>
-          This is title
-        </Title>
-        <Description>
-          This is a short description
-        </Description>
+        <NoColorLink to="/articles/slug-1">
+          <Title>
+            This is title
+          </Title>
+          <Description>
+            This is a short description
+          </Description>
+        </NoColorLink>
       </CardBlock>
       <CardBlock>
         <EnagementWrapper>
-          <i className="fa fa-heart-o fa-lg"></i>
-          <i className="fa fa-bookmark-o fa-lg"></i>
+          <Blue><i className="fa fa-heart-o fa-lg" /></Blue>
+          <Blue><i className="fa fa-bookmark-o fa-lg"></i></Blue>
         </EnagementWrapper>
       </CardBlock>
     </Wrapper>

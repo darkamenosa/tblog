@@ -8,55 +8,64 @@ import React from 'react';
 import { Link } from 'react-router';
 import LoadingBar from 'react-redux-loading-bar';
 import styled from 'styled-components';
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
-
-const Wrapper = styled.div`
+const Logo = styled.h2`
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 1;
 `;
 
-const Head = styled.div`
+const NavHeader = styled(Navbar.Header)`
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+`;
+
+const NavBrand = styled(Navbar.Brand)`
   display: flex;
-  height: 60px;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2);
-  padding-left: 2em;
-  padding-right: 2em;
-  justify-content: space-between;
   align-items: center;
 `;
 
-const LeftMenu = styled.div`
-
+const RightNav = styled(Nav)`
+  margin-left: 0px!important;
+  margin-right: 0px!important;
 `;
 
-const RightMenu = styled.div`
+const HambergerToggle = styled(Navbar.Toggle)`
+  border: none;
 `;
 
-const StyledLink = styled(Link)`
-  margin-left: 1em;
-  margin-right: 1em;
+const Blue = styled.span`
+  color: #337ab7
 `;
 
 const Header = () => (
-  <Wrapper>
-    <Head>
-      <LeftMenu>
-        <h2>
-          <StyledLink to="/">
-            Tblog
-          </StyledLink>
-        </h2>
-      </LeftMenu>
-      <RightMenu>
-        <StyledLink to="/register">Sign Up</StyledLink>
-        <StyledLink to="/login">Sign In</StyledLink>
-      </RightMenu>
-    </Head>
+  <Navbar>
     <LoadingBar />
-  </Wrapper>
+    <NavHeader>
+      <NavBrand>
+        <Link to="/">
+          <Logo>
+            <Blue>tblog</Blue>
+          </Logo>
+        </Link>
+      </NavBrand>
+      <HambergerToggle />
+    </NavHeader>
+    <Navbar.Collapse>
+      <RightNav pullRight>
+        <NavItem eventKey={1} href="/#/search">
+          <Blue><i className="fa fa-search fa-lg" /></Blue>
+        </NavItem>
+        <NavItem eventKey={1} href="/#/register">
+          <Blue>Sign Up</Blue>
+        </NavItem>
+        <NavItem eventKey={2} href="/#/login">
+          <Blue>Sign In</Blue>
+        </NavItem>
+      </RightNav>
+    </Navbar.Collapse>
+  </Navbar>
 );
 
 Header.propTypes = {

@@ -11,7 +11,7 @@ import Header from '../Header';
 
 
 const ContentContainer = styled.div`
-  padding-top: 15px;
+
 `;
 
 function AppWrapper(props) {
