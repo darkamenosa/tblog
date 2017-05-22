@@ -82,7 +82,12 @@ export class ArticlePage extends React.Component { // eslint-disable-line react/
           title="Article page"
           meta={[]}
         />
-        <Header />
+        <Header
+          style={{
+            backgroundColor: '#fff',
+            border: 'none',
+          }}
+        />
         <div className="row">
           <ContentWrapper>
             <ArticleWrapper className="col-xs-12 col-sm-8">

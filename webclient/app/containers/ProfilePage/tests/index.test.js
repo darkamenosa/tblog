@@ -1,9 +1,9 @@
 // import React from 'react';
 // import { shallow } from 'enzyme';
 
-// import HambergerIcon from '../index';
+// import { ProfilePage } from '../index';
 
-describe('<HambergerIcon />', () => {
+describe('<ProfilePage />', () => {
   it('Expect to have unit tests specified', () => {
     expect(true).toEqual(false);
   });

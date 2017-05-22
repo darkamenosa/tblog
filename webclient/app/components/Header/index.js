@@ -35,8 +35,8 @@ const HambergerToggle = styled(Navbar.Toggle)`
   border: none;
 `;
 
-const Header = () => (
-  <Navbar>
+const Header = (props) => (
+  <Navbar style={props.style}>
     <LoadingBar />
     <NavHeader>
       <NavBrand>
@@ -65,7 +65,7 @@ const Header = () => (
 );
 
 Header.propTypes = {
-
+  style: React.PropTypes.object,
 };
 
 export default Header;

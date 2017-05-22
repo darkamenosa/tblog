@@ -15,13 +15,18 @@ const ContentContainer = styled.div`
 `;
 
 function AppWrapper(props) {
+  const { whiteHeader, noUnderline } = props;
+
+  const white = whiteHeader ? { backgroundColor: '#fff' } : {};
+  const noUL = noUnderline ? { border: 'none' } : {};
+
   return (
     <div className="row">
       <Helmet
         title={props.title}
         meta={props.meta}
       />
-      <Header />
+      <Header style={{ ...white, ...noUL }} />
       <ContentContainer className="container">
         {React.Children.toArray(props.children)}
       </ContentContainer>
@@ -32,12 +37,16 @@ function AppWrapper(props) {
 AppWrapper.defaultProps = {
   title: 'tblog',
   meta: [],
+  whiteHeader: false,
+  noUnderline: false,
 };
 
 AppWrapper.propTypes = {
   children: React.PropTypes.node,
   title: React.PropTypes.string,
   meta: React.PropTypes.array,
+  whiteHeader: React.PropTypes.bool,
+  noUnderline: React.PropTypes.bool,
 };
 
 export default AppWrapper;
