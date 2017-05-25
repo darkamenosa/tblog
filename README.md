@@ -33,8 +33,10 @@ Finishing these things will make my development process faster.
 
 ## Now doing:
 
-- View: [testing-workshop](https://github.com/kentcdodds/testing-workshop)
+- View: [testing-workshop](https://github.com/kentcdodds/testing-workshop) 
 - View: [mostly-adequate-guide](https://github.com/MostlyAdequate/mostly-adequate-guide), this guide is a functional programming tutorial.
+
+- Re design UI for the blog (mobile oriented) and thinking about the functional requirements. I think there must be a change.
 
 ## To do:
 
