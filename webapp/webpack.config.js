@@ -1,9 +1,11 @@
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   entry: path.resolve(__dirname, 'entry.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: 'dist',
     filename: 'bundle.js',
   },
   module: {
@@ -18,4 +20,7 @@ module.exports = {
     hot: true,
     port: 3000,
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(), // Enable HMR
+  ],
 }

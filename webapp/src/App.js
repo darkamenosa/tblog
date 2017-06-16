@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Header,
   Navbar,
+  Button,
 } from './components'
 
 class App extends React.Component {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <Navbar />
         <Header />
         { this.greeting() }
+        <Button />
       </div>
     )
   }
