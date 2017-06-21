@@ -1,14 +1,28 @@
-export const white = '#fff'
-export const black = '#111'
-export const blue = '#07c'
-
-export const colors = {
-  white,
-  black,
-  blue,
+const baseColors = {
+  black: '#111',
+  white: '#fff',
+  gray: '#ddd',
+  midgray: '#888',
+  blue: '#08e',
+  red: '#f52',
+  orange: '#f70',
+  green: '#1c7',
 }
 
-export const space = [
+const colors = {
+  ...baseColors,
+  primary: baseColors.blue,
+  secondary: baseColors.midgray,
+  default: baseColors.black,
+  info: baseColors.blue,
+  success: baseColors.green,
+  warning: baseColors.orange,
+  error: baseColors.red,
+}
+
+const inverted = colors.white
+
+const scale = [
   0,
   8,
   16,
@@ -16,10 +30,37 @@ export const space = [
   64,
 ]
 
-const styles = {
-  bold: 600,
-  space,
+const fontSizes = [
+  48,
+  32,
+  24,
+  20,
+  16,
+  14,
+  12,
+]
+
+const zIndex = [
+  0,
+  2,
+  4,
+  8,
+  16,
+]
+
+const bold = 600
+const borderRadius = 2
+const borderColor = 'rgba(0, 0, 0, .25)'
+
+const config = {
+  scale,
+  fontSizes,
+  zIndex,
+  bold,
+  borderRadius,
+  borderColor,
   colors,
+  inverted,
 }
 
-export default styles
+export default config

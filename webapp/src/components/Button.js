@@ -1,27 +1,46 @@
 import React from 'react'
-import { bold, space, colors } from './config'
+import Base from './Base'
+import config from './config'
 
-const Button = (props) => {
+const Button = ({
+  href,
+  big,
+  baseStyle,
+  _className,
+  ...props
+}) => {
+  const Component = href ? 'a' : 'button'
+
+  const { fontSizes, bold, scale } = config
+
+  const minHeight = scale[3]
+
   const sx = {
+    ...baseStyle,
+    minHeight,
     fontFamily: 'inherit',
-    fontSize: 'inherit',
+    fontSize: fontSizes[5],
     fontWeight: bold,
+    lineHeight: `${scale[2]}px`,
     textDecoration: 'none',
     display: 'inline-block',
     margin: 0,
-    paddingTop: space[1],
-    paddingBottom: space[1],
-    paddingLeft: space[2],
-    paddingRight: space[2],
+    paddingTop: big ? scale[2] : scale[1],
+    paddingBottom: big ? scale[2] : scale[1],
+    paddingLeft: scale[2],
+    paddingRight: scale[2],
+    cursor: 'pointer',
     border: 0,
-    color: colors.white,
-    backgroundColor: colors.blue,
-    WebkitAppearance: 'none',
-    MozAppearance: 'none',
   }
 
   return (
-    <button {...props} style={sx} />
+    <Base
+      {...props}
+      tagName={Component}
+      className={_className || 'Button'}
+      href={href}
+      baseStyle={sx}
+    />
   )
 }
 

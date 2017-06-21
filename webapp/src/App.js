@@ -24,7 +24,7 @@ class App extends React.Component {
         <Navbar />
         <Header />
         { this.greeting() }
-        <Button />
+        <Button>Hello</Button>
       </div>
     )
   }
